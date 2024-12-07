@@ -7,6 +7,7 @@ def predict_path(grid):
             if grid[i][j] == "^":
                 pos = (i, j)
     positions = set()
+    positions.add(pos)
     while True:
         pos = advance(direction_idx, pos, grid, positions)
         if pos and (0 <= pos[0] < len(grid)) and (0 <= pos[1] < len(grid[0])):
@@ -26,7 +27,8 @@ def advance(idx, pos, grid, positions):
             return pos
         else:
             pos = (next_i, next_j)
-            positions.add(pos)
+            if (0 <= next_i < len(grid)) and (0 <= next_j < len(grid[0])):
+                positions.add(pos)
     
 
 def main():
