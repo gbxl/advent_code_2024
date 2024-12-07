@@ -1,3 +1,4 @@
+import time
 from typing import Dict
 
 def build_rules(rules) -> Dict:
@@ -49,4 +50,7 @@ def main():
 
 
 if __name__ == '__main__':
+    start = time.time()
     main()
+    end = time.time()
+    print(f"Took {end - start:.2f} s")  
